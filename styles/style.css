@@ -2,4 +2,365 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background: var(--bg-image) no-repeat center / cover;
+  background-attachment: fixed;
+  background-color: var(--bg-color-page);
+  color: var(--text-color);
+  font-size: 18px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ------------------ Header ----------------*/
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  min-height: 668px;
+  height: 100vh;
+  margin-block-end: 40px;
+  padding: 10px;
+}
+
+.header__theme-menu {
+  justify-self: right;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  width: 70px;
+  height: 26px;
+  line-height: 24px;
+  padding-bottom: 2px;
+  color: var(--title-color);
+  background-color: transparent;
+  border: none;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--border-color-hover);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--border-color);
+  pointer-events: none;
+}
+
+/* ------------------ Title ----------------*/
+
+.header-title {
+  color: var(--super-title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0 var(--bg-color-block);
+}
+
+.title-description {
+  justify-self: right;
+  align-self: center;
+  max-width: 355px;
+  width:100%;
+  line-height: 23.4px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.title-decor {
+  color: var(--title-color-block);
+  background-color: var(--bg-color-block);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.title-decor_normal {
+  font-weight: 400;
+}
+
+/* ------------------ Decorated Zone (Header) ----------------*/
+
+.decorated-zone::before {
+  position: absolute;
+  content: '';
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.decorated-zone::after {
+  position: absolute;
+  content: '';
+  left: 10px;
+  bottom: 10px;
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.rec::before {
+  position: absolute;
+  content: 'REC';
+  top: -7px;
+  right: 20px;
+  color: var(--title-color);
+}
+
+.rec {
+  display: var(--rec-display);
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  width: 9px;
+  height: 9px;
+  background-color: var(--bg-color-block);
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--bg-color-block);
+}
+
+/* ------------------ Main ----------------*/
+
+main {
+  padding: 0 10px;
+  line-height: 23.4px;
+  font-size: inherit;
+}
+
+.content-section {
+  display: grid;
+  gap: 20px;
+  margin-block-end: 50px;
+}
+
+.section_complex,
+.section_simple {
+  grid-template-columns: 1fr;
+}
+
+.section-title {
+  font-size: inherit;
+  color: var(--title-color);
+}
+
+.section-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--bg-color-block);
+}
+
+.text-link:focus {
+  outline: none;
+}
+
+.text-link:focus-visible {
+  border: 1px solid var(--text-color);
+}
+
+.text-link:hover {
+  border-bottom: 1px solid var(--text-color);
+}
+
+/* ------------------ Pictures ----------------*/
+
+.pictures-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-block-end: 40px;
+}
+
+.pictures {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+img {
+  width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ------------------ Footer ----------------*/
+
+.footer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  min-height: 668px;
+  margin-block-start: 20px;
+}
+
+.footer-title {
+  color: var(--super-title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  text-shadow: 2px 2px 0 var(--bg-color-block);
+  text-align: center;
+  place-content: center;
+}
+
+/* ------------------ Common ----------------*/
+
+.mb-20 {
+  margin-block-end: 20px;
+}
+
+/* ------------------ Media ----------------*/
+
+@media (min-width: 768px) {
+  .header {
+    margin-block-end: 60px;
+    padding: 20px 0;
+  }
+
+  .header__theme-menu {
+    margin-inline-end: 20px;
+  }
+  
+  .header-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .title-description {
+    margin-inline-end: 20px;
+    max-width: 364px;
+  }
+
+  .decorated-zone::before {
+    right: 20px;
+    top: 20px;
+  }
+
+  .decorated-zone::after {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .rec {
+    top: 29px;
+    right: 29px;
+  }
+
+  main {
+    padding: 0 20px;
+  }
+
+  .content-section {
+    margin-block-end: 80px;
+  }
+
+  .section_complex {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section_simple .section-title {
+    width: 20vw;
+  }
+
+  .section-title {
+    grid-column: 1;
+  }
+
+  .pictures-section {
+    gap: 20px;
+    margin-block-end: 60px;
+  }
+
+  .pictures {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .picture-sunset {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .picture-ice-cream {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .picture-tape {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  .picture-books {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .picture-street {
+    grid-column: 2 / 4;
+    grid-row: 3;
+  }
+
+  .footer-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: flex-start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .title-description {
+    max-width: 491px;
+    width:100%;
+  }
+
+  .section_complex {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section_simple {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .section_simple .section-title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 33vw;
+  }
 }
